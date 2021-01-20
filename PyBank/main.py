@@ -1,8 +1,8 @@
 import os
 import csv
 
-read_path = os.path.join("Resources", "PyBank_Resources_budget_data.csv")
-write_path = os.path.join("analysis", "PyBank_Resources_budget_analysis.csv")
+read_path = os.path.join("Resources", "budget_data.csv")
+write_path = os.path.join("analysis", "budget_analysis.csv")
 
 with open(read_path, 'r') as bank_data:
 
