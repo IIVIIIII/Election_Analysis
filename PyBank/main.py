@@ -1,6 +1,5 @@
 import os
 import csv
-from numpy import mean
 
 read_path = os.path.join("Resources", "PyBank_Resources_budget_data.csv")
 write_path = os.path.join("analysis", "PyBank_Resources_budget_analysis.csv")
