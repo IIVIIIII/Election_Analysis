@@ -3,7 +3,7 @@ import csv
 
 # set paths for csvs to read/write
 read_path = os.path.join("resources", "budget_data.csv")
-write_path = os.path.join("analysis", "budget_analysis.csv")
+write_path = os.path.join("analysis", "budget_analysis.txt")
 
 
 # set variables for results to calculate
@@ -37,18 +37,16 @@ with open(read_path, 'r') as bank_data:
     average = "${:.2f}".format(float(total)/monthcount)
 
 
-# write results of analysis to a csv
-with open(write_path, 'a') as bank_analysis:
-
-    bank_write = csv.writer(bank_analysis, delimiter=',')
-
-    bank_write.writerow(["Financial Analysis"])
-    bank_write.writerow(["----------------------------"])
-    bank_write.writerow(["Total Months: " + str(monthcount)])
-    bank_write.writerow(["Total: $" + str(total)])
-    bank_write.writerow(["Average Change: " + str(average)])
-    bank_write.writerow(["Greatest Increase in Profits: " + str(greatincrease_m) + " ($" + str(greatincrease_n) + ")"])
-    bank_write.writerow(["Greatest Decrease in Profits: " + str(greatdecrease_m) + " ($" + str(greatdecrease_n) + ")"])
+# write results of analysis to a txt file
+analysis = open(write_path, 'w')
+analysis.write("Financial Analysis\n")
+analysis.write("----------------------------\n")
+analysis.write("Total Months: " + str(monthcount) + "\n")
+analysis.write("Total: $" + str(total) + "\n")
+analysis.write("Average Change: " + str(average) + "\n")
+analysis.write("Greatest Increase in Profits: " + str(greatincrease_m) + " ($" + str(greatincrease_n) + ")\n")
+analysis.write("Greatest Decrease in Profits: " + str(greatdecrease_m) + " ($" + str(greatdecrease_n) + ")\n")
+analysis.close
 
 # print results of analysis to a terminal
 print("\nFinancial Analysis")
