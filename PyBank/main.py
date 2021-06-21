@@ -1,7 +1,7 @@
 import os
 import csv
 
-# set paths for csvs to read/write
+# set paths for csv to read and txt to write
 read_path = os.path.join("resources", "budget_data.csv")
 write_path = os.path.join("analysis", "budget_analysis.txt")
 
@@ -48,7 +48,7 @@ analysis.write("Greatest Increase in Profits: " + str(greatincrease_m) + " ($" +
 analysis.write("Greatest Decrease in Profits: " + str(greatdecrease_m) + " ($" + str(greatdecrease_n) + ")\n")
 analysis.close
 
-# print results of analysis to a terminal
+# print results of analysis to terminal
 print("\nFinancial Analysis")
 print("----------------------------")
 print("Total Months: " + str(monthcount))

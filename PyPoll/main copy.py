@@ -1,15 +1,17 @@
 import os
 import csv
 
+# set paths for csv to read and txt to write
 read_path = os.path.join("resources", "election_data.csv")
 write_path = os.path.join("analysis", "election_analysis.txt")
 
+# set variables for results to calculate
+results = {}
 total = 0
-canidates = []
 high = 0
 winner = ""
-results = {}
 
+# read csv and analyise data
 with open(read_path, 'r') as election_data:
 
     election_read = csv.reader(election_data)
@@ -28,16 +30,17 @@ with open(read_path, 'r') as election_data:
         results[canidate]['percentage'] = "{:.2%}".format(results[canidate]['votes']/total)
 
 
+
 # write results of analysis to a txt file
 analysis = open(write_path, 'w')
 analysis.write('Election Results\n')
 analysis.write('-------------------------\n')
 analysis.write(f'Total Votes: {total}\n')
 analysis.write('-------------------------\n')
+
 for result in results:
-
     analysis.write(f'{result}: {results[result]["percentage"]} ({results[result]["votes"]})\n')
-
+    
     if results[result]['votes'] > high:
         winner = result
         high = results[result]['votes']
@@ -47,6 +50,7 @@ analysis.write(f'Winner: {winner}\n')
 analysis.write('-------------------------')
 
 
+# print results of analysis to terminal
 print('\nElection Results')
 print('-------------------------')
 print(f'Total Votes: {total}')
