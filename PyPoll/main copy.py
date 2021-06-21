@@ -25,10 +25,10 @@ with open(read_path, 'r') as election_data:
             results[row[2]] = {'votes': 1, 'percentage': 0}
 
     for canidate in results.keys():
-        print(canidate)
-    
-        
-# print(f'\n{results}\n')
+        results[canidate]['percentage'] = "{:.2%}".format(results[canidate]['votes']/total)
+
+print(total)
+print(f'\n{results}\n')
 
 # with open(read_path, 'r') as election_data:
 
