@@ -27,8 +27,23 @@ with open(read_path, 'r') as election_data:
     for canidate in results.keys():
         results[canidate]['percentage'] = "{:.2%}".format(results[canidate]['votes']/total)
 
-print(total)
-print(f'\n{results}\n')
+print('\nElection Results')
+print('-------------------------')
+print(f'Total Votes: {total}')
+print('-------------------------')
+for result in results:
+
+    print(f'{result}: {results[result]["percentage"]} ({results[result]["votes"]})')
+
+    if results[result]['votes'] > high:
+        winner = result
+        high = results[result]['votes']
+        
+print("-------------------------")
+print(f'Winner: {winner}')
+print('-------------------------')
+
+
 
 # with open(read_path, 'r') as election_data:
 
