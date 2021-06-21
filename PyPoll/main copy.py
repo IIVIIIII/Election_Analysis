@@ -2,7 +2,7 @@ import os
 import csv
 
 read_path = os.path.join("resources", "election_data.csv")
-write_path = os.path.join("analysis", "election_analysis.csv")
+write_path = os.path.join("analysis", "election_analysis.txt")
 
 total = 0
 canidates = []
@@ -27,21 +27,44 @@ with open(read_path, 'r') as election_data:
     for canidate in results.keys():
         results[canidate]['percentage'] = "{:.2%}".format(results[canidate]['votes']/total)
 
-print('\nElection Results')
-print('-------------------------')
-print(f'Total Votes: {total}')
-print('-------------------------')
+
+# write results of analysis to a txt file
+analysis = open(write_path, 'w')
+analysis.write('Election Results\n')
+analysis.write('-------------------------\n')
+analysis.write(f'Total Votes: {total}\n')
+analysis.write('-------------------------\n')
 for result in results:
 
-    print(f'{result}: {results[result]["percentage"]} ({results[result]["votes"]})')
+    analysis.write(f'{result}: {results[result]["percentage"]} ({results[result]["votes"]})\n')
 
     if results[result]['votes'] > high:
         winner = result
         high = results[result]['votes']
-        
+
+analysis.write("-------------------------\n")
+analysis.write(f'Winner: {winner}\n')
+analysis.write('-------------------------')
+
+
+print('\nElection Results')
+print('-------------------------')
+print(f'Total Votes: {total}')
+print('-------------------------')
+
+for result in results:
+    print(f'{result}: {results[result]["percentage"]} ({results[result]["votes"]})')
+
 print("-------------------------")
 print(f'Winner: {winner}')
-print('-------------------------')
+print('-------------------------\n')
+
+
+
+
+
+
+
 
 
 
