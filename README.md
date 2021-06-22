@@ -1,3 +1,3 @@
 # Python_Challenges
 
-A pair of challenges which test an ability to use python to read, process, and write sets of data. One script calculates the results of a hypothetical election (PyPoll) and the other analyzes the financial records of a hypothetical company (PyBank).
+An exercise which uses python to read a csv and calculate the results of a hypothetical election. The resulting analysis describes the total number of votes cast, the number of votes cast for each canidate, the percentage of the total vote that each canidate recieved, and the winner of the election.
